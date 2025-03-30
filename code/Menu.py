@@ -9,7 +9,7 @@ class Menu:
 
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./asset/menu1.png')
+        self.surf = pygame.image.load('./asset/menu1.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, menu_option=0):
@@ -19,7 +19,6 @@ class Menu:
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(50, "DARK NIGHT", COLOR_WHITE, ((WIN_WIDTH / 2), 70))
-            self.menu_text(50, "SHOOTER", COLOR_WHITE, ((WIN_WIDTH / 2), 120))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:  # Destacar a opção selecionada
